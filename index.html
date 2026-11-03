@@ -57,13 +57,16 @@
   .codes li { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 14px; }
   .codes b { color: var(--accent); }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+  /* 3 cards on top, the last 2 share the same full width below. */
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .card { grid-column: span 2; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .card.wide { grid-column: span 3; }
   .card.hl { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(30,155,255,.25); }
   .card .ico { font-size: 30px; line-height: 1; }
   .card p { margin: 0; color: var(--dim); font-size: 15px; }
   .card .meta { font-size: 13px; color: var(--dim); }
   .card .actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .card .actions .btn { padding: 12px 14px; }
   .badge { font-size: 12px; color: var(--ok); font-weight: 600; }
 
   .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
@@ -90,6 +93,13 @@
   footer { color: var(--dim); font-size: 13px; text-align: center; padding: 34px 0 30px; }
   .hidden { display: none !important; }
 
+  @media (max-width: 1000px) {
+    .card .actions .btn { flex: 1 1 auto; } /* narrow cards: buttons stacked neatly, full width */
+  }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+    .card, .card.wide { grid-column: auto; }
+  }
   @media (max-width: 520px) {
     h1 { font-size: 25px; }
     header img { width: 120px; }
@@ -167,14 +177,14 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card wide">
         <div class="ico">🖥️</div>
         <h3>TV Samsung</h3>
         <p>L'appli s'installe depuis un PC, la TV étant en mode développeur. Nous faisons l'installation pour vous.</p>
         <div class="actions"><a class="btn ghost" href="#contact">Nous contacter</a></div>
       </article>
 
-      <article class="card">
+      <article class="card wide">
         <div class="ico">📖</div>
         <h3>Guide complet (PDF)</h3>
         <p>Installation, fonctions, commandes de la télécommande et solutions aux problèmes.</p>
@@ -286,7 +296,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   // ------------------------------------------------------------ à remplir
-  var WHATSAPP = "237693295198";          // numéro international sans + ni espaces, ex. "237690000000"
+  var WHATSAPP = "237693295198";        // numéro international sans + ni espaces, ex. "237690000000"
   var DOWNLOADER_CODE = "";   // code Downloader (aftvnews.com) qui pointe vers l'APK TV, ex. "1234567"
   // Sur GitHub Pages (nom.github.io/depot) le dépôt est trouvé tout seul ; sinon, remplir ici :
   var GITHUB_USER = "", GITHUB_REPO = "";
@@ -375,4 +385,3 @@
 </script>
 </body>
 </html>
-
