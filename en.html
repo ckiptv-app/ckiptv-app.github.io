@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CK IPTV – Download</title>
+<meta name="description" content="Download CK IPTV for Android TV, Fire TV, phone, tablet and Windows PC, with the installation guide.">
+<link rel="icon" href="logo.png">
+<link rel="alternate" hreflang="fr" href="index.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<meta property="og:title" content="CK IPTV – Download">
+<meta property="og:description" content="IPTV player for TV, phone, tablet and PC.">
+<meta property="og:image" content="logo.png">
+<style>
+  /* ------------------------------------------------------------ réglages
+     Seules ces trois lignes sont à modifier (dans le script en bas de page) :
+     WHATSAPP, DOWNLOADER_CODE et, hors GitHub Pages, GITHUB_USER / GITHUB_REPO.
+     La page anglaise en.html a le même style et les mêmes réglages : modifier les deux pages. */
+  :root {
+    --bg: #0B1220; --bg2: #111A2E; --card: #16213A; --line: #24324F;
+    --text: #EEF3FA; --dim: #9AA7B4; --blue: #1E9BFF; --blue2: #0A6DD8;
+    --accent: #FFB300; --ok: #3BCB7A;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  a { color: var(--blue); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  header { background: radial-gradient(ellipse at top, #16305E 0%, var(--bg) 70%); padding: 40px 0 28px; text-align: center; position: relative; }
+  .lang { position: absolute; top: 12px; right: 16px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 99px;
+          color: var(--text); text-decoration: none; font-size: 14px; background: rgba(11,18,32,.5); }
+  .lang:hover { border-color: var(--blue); }
+  header img { width: 150px; height: auto; }
+  h1 { margin: 10px 0 4px; font-size: 30px; }
+  .tag { color: var(--dim); margin: 0 auto; max-width: 560px; }
+  .ver { display: inline-block; margin-top: 12px; padding: 3px 12px; border: 1px solid var(--line); border-radius: 99px;
+         color: var(--dim); font-size: 14px; }
+  .reco { margin-top: 22px; }
+  .reco p { margin: 0 0 8px; color: var(--dim); font-size: 14px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 10px;
+         background: linear-gradient(180deg, var(--blue), var(--blue2)); color: #fff; text-decoration: none; font-weight: 600;
+         border: 0; cursor: pointer; font-size: 16px; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.ghost { background: transparent; border: 1px solid var(--line); color: var(--text); }
+  .btn.wa { background: #1FAF54; }
+
+  nav { position: sticky; top: 0; z-index: 5; background: rgba(11,18,32,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  nav .wrap::-webkit-scrollbar { display: none; }
+  nav a { padding: 12px 12px; color: var(--dim); text-decoration: none; white-space: nowrap; font-size: 15px; }
+  nav a:hover { color: var(--text); }
+
+  section { padding: 34px 0 6px; }
+  h2 { font-size: 23px; margin: 0 0 14px; }
+  h3 { font-size: 18px; margin: 0 0 6px; }
+
+  .notice { background: var(--bg2); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; }
+  .notice p { margin: 0 0 6px; }
+  .codes { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; padding: 0; list-style: none; }
+  .codes li { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 14px; }
+  .codes b { color: var(--accent); }
+
+  /* 3 cards on top, the last 2 share the same full width below. */
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .card { grid-column: span 2; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+  .card.wide { grid-column: span 3; }
+  .card.hl { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(30,155,255,.25); }
+  .card .ico { font-size: 30px; line-height: 1; }
+  .card p { margin: 0; color: var(--dim); font-size: 15px; }
+  .card .meta { font-size: 13px; color: var(--dim); }
+  .card .actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .card .actions .btn { padding: 12px 14px; }
+  .badge { font-size: 12px; color: var(--ok); font-weight: 600; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tabs button { background: var(--card); color: var(--dim); border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px;
+                 font-size: 15px; cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--blue2); color: #fff; border-color: var(--blue2); }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.steps > li { counter-increment: s; position: relative; padding: 0 0 18px 48px; }
+  ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%;
+                          background: var(--blue2); color: #fff; display: grid; place-items: center; font-weight: 700; }
+  ol.steps p, ol.steps ul { margin: 2px 0 0; color: var(--dim); }
+  ol.steps b, .faq b { color: var(--text); }
+  .tip { color: var(--dim); font-size: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; }
+  .faq summary { cursor: pointer; padding: 12px 16px; font-weight: 600; }
+  .faq details p { margin: 0; padding: 0 16px 14px; color: var(--dim); }
+
+  .contact { display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  #qr { background: #fff; padding: 10px; border-radius: 10px; width: 150px; height: 150px; margin: 0 auto; box-sizing: border-box; }
+  #qr img, #qr canvas { width: 130px !important; height: 130px !important; }
+  footer { color: var(--dim); font-size: 13px; text-align: center; padding: 34px 0 30px; }
+  .hidden { display: none !important; }
+
+  @media (max-width: 1000px) {
+    .card .actions .btn { flex: 1 1 auto; } /* narrow cards: buttons stacked neatly, full width */
+  }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+    .card, .card.wide { grid-column: auto; }
+  }
+  @media (max-width: 520px) {
+    h1 { font-size: 25px; }
+    header img { width: 120px; }
+    .btn { width: 100%; }
+    .card .actions .btn { width: auto; flex: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang" href="index.html" hreflang="fr" lang="fr" data-lang="fr">🌐 Français</a>
+  <div class="wrap">
+    <img src="logo.png" alt="CK IPTV logo">
+    <h1>CK IPTV</h1>
+    <p class="tag">Your channels, movies and series with the same look on your TV, phone, tablet and PC.</p>
+    <span class="ver" id="ver">Android 3.11 · PC 1.6.6</span>
+    <div class="reco" id="reco"></div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#avant">Before you install</a>
+    <a href="#telecharger">Download</a>
+    <a href="#installer">Installation</a>
+    <a href="#aide">Common problems</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="avant">
+    <h2>Before you install</h2>
+    <div class="notice">
+      <p><b>CK IPTV is a player.</b> It does not provide any channels: you enter your own subscription
+         (Xtream Codes, M3U playlist or stream link).</p>
+      <p><b>An activation code is required on first launch.</b> It has 8 characters; its first digits give the duration:</p>
+      <ul class="codes">
+        <li><b>2</b>… 2 days</li><li><b>7</b>… 7 days</li><li><b>31</b>… 1 month</li>
+        <li><b>366</b>… 1 year</li><li><b>00</b>… unlimited</li>
+      </ul>
+      <p>Each code can only be used once. To get one, <a href="#contact">contact us</a>.</p>
+    </div>
+  </section>
+
+  <section id="telecharger">
+    <h2>Download</h2>
+    <div class="grid">
+      <article class="card" data-dev="tv">
+        <div class="ico">📺</div>
+        <h3>Android TV, Google TV, Fire TV</h3>
+        <p>Android TVs and boxes, Chromecast with Google TV, Fire TV Stick.</p>
+        <span class="meta" data-size="CK_IPTV_TV.apk" data-label="APK file">APK file · about 7 MB</span>
+        <p class="meta hidden" id="dlcode">On the TV: <b>Downloader</b> app, code <b id="dlcodeval"></b></p>
+        <div class="actions"><a class="btn" data-file="CK_IPTV_TV.apk">Download</a></div>
+      </article>
+
+      <article class="card" data-dev="mobile">
+        <div class="ico">📱</div>
+        <h3>Android phone and tablet</h3>
+        <p>Android 7 or newer. Installs alongside the TV version.</p>
+        <span class="meta" data-size="CK_IPTV_Mobile.apk" data-label="APK file">APK file · about 7 MB</span>
+        <div class="actions"><a class="btn" data-file="CK_IPTV_Mobile.apk">Download</a></div>
+      </article>
+
+      <article class="card" data-dev="pc">
+        <div class="ico">💻</div>
+        <h3>Windows PC</h3>
+        <p>Windows 10 or 11. Installer (desktop shortcut) or portable, no installation (USB stick).</p>
+        <span class="meta" data-size="CK_IPTV_PC_Setup.exe" data-label="Installer">About 85 MB</span>
+        <div class="actions">
+          <a class="btn" data-file="CK_IPTV_PC_Setup.exe">Installer</a>
+          <a class="btn ghost" data-file="CK_IPTV_PC_Portable.exe">Portable</a>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <div class="ico">🖥️</div>
+        <h3>Samsung TV</h3>
+        <p>The app is installed from a PC, with the TV in developer mode. We do the installation for you.</p>
+        <div class="actions"><a class="btn ghost" href="#contact">Contact us</a></div>
+      </article>
+
+      <article class="card wide">
+        <div class="ico">📖</div>
+        <h3>Full guide (PDF, in French)</h3>
+        <p>Installation, features, remote control keys and solutions to common problems.</p>
+        <div class="actions"><a class="btn ghost" href="Guide_CK_IPTV.pdf" target="_blank" rel="noopener">Open the guide</a></div>
+      </article>
+    </div>
+    <p class="tip" style="margin-top:14px">iPhone, iPad and LG TVs: no version for now.</p>
+  </section>
+
+  <section id="installer">
+    <h2>Installation</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="tv" aria-selected="true">📺 Android TV / Fire TV</button>
+      <button role="tab" data-tab="mobile" aria-selected="false">📱 Phone, tablet</button>
+      <button role="tab" data-tab="pc" aria-selected="false">💻 Windows PC</button>
+    </div>
+
+    <div class="panel on" id="p-tv">
+      <ol class="steps">
+        <li><b>Install Downloader</b>
+          <p>Search for the free <b>Downloader</b> app (orange icon) in the Play Store or the Amazon Appstore and install it.</p></li>
+        <li><b>Allow the installation</b>
+          <ul>
+            <li>Android TV / Google TV: <b>Settings › Apps › Security &amp; restrictions › Unknown sources</b>, turn on Downloader.</li>
+            <li>Fire TV: <b>Settings › My Fire TV › Developer options › Install unknown apps</b>, turn on Downloader.</li>
+          </ul></li>
+        <li><b>Download</b>
+          <p id="tv-get">Open Downloader and type the address of this page, then choose “Android TV” and <b>Download</b>.</p></li>
+        <li><b>Install</b>
+          <p>When the download is finished, choose <b>Install</b>. If Play Protect warns you: <b>Install anyway</b>
+             (the app does not come from the Play Store). You can then delete the APK file.</p></li>
+        <li><b>Activate</b>
+          <p>Launch <b>CK IPTV</b>, enter the activation code (Internet required), then <b>Activate</b>. The Settings open:
+             choose the source, enter the server, username and password of your subscription, then <b>Save</b>.</p></li>
+      </ol>
+      <p class="tip">Without Downloader: copy the APK file to a USB stick and open it with a file manager
+         (File Commander, X-plore) after allowing that file manager in step 2.</p>
+    </div>
+
+    <div class="panel" id="p-mobile">
+      <ol class="steps">
+        <li><b>Download</b>
+          <p>On the phone, open this page and tap “Android phone and tablet” › <b>Download</b>.
+             If Chrome asks for confirmation, choose <b>Download anyway</b>.</p></li>
+        <li><b>Install</b>
+          <p>Open the downloaded file. Android asks you to allow Chrome (or Files) to <b>install unknown apps</b>:
+             allow it, go back, then <b>Install</b>.</p></li>
+        <li><b>Activate</b>
+          <p>Enter the activation code, then your subscription in the Settings.</p></li>
+      </ol>
+    </div>
+
+    <div class="panel" id="p-pc">
+      <ol class="steps">
+        <li><b>Download</b>
+          <p>Choose <b>Installer</b> (desktop shortcut) or <b>Portable</b> (no installation, runs directly, for example from a USB stick).</p></li>
+        <li><b>Launch</b>
+          <p>Windows SmartScreen may warn you because the app is not signed: <b>More info</b> › <b>Run anyway</b>.</p></li>
+        <li><b>Activate</b>
+          <p>Enter the activation code, then your subscription in the Settings.</p></li>
+      </ol>
+      <p class="tip">Recommended: also install <a href="https://www.videolan.org/" rel="noopener">VLC</a> for movies the built-in player
+         cannot play (press <b>V</b> during playback).</p>
+    </div>
+
+    <p class="tip"><b>Update:</b> download the new version and install it over the old one.
+       Your activation, settings and favourites are kept.</p>
+  </section>
+
+  <section id="aide" class="faq">
+    <h2>Common problems</h2>
+    <details><summary>“Invalid code” or “already used”</summary>
+      <p>Check the 8 characters. A code can only be used once: ask for a new one.</p></details>
+    <details><summary>“Licence expired”</summary>
+      <p>Enter a new code: the activation screen comes back by itself. To add days before the end:
+         <b>Settings › Extend licence</b> (2 + 2 days = 4 days).</p></details>
+    <details><summary>“No connection” during activation</summary>
+      <p>Activation needs Internet: check the Wi-Fi, then try again.</p></details>
+    <details><summary>“Weak Internet connection”</summary>
+      <p>The app has already lowered the picture quality if the channel allows it. Move closer to the router, use a cable,
+         or choose a lower maximum quality in <b>Settings › Display and language</b>.</p></details>
+    <details><summary>Username or password rejected</summary>
+      <p>Check your subscription in the Settings, paying attention to capital letters.</p></details>
+    <details><summary>“Too many connections”</summary>
+      <p>The subscription is being used on another device: close the IPTV app there.</p></details>
+    <details><summary>Category with a padlock</summary>
+      <p>This is parental control. The default code is <b>0000</b>; you can change it in the Settings.</p></details>
+    <details><summary>“Video format not supported”</summary>
+      <p>Choose another version (HD, SD). On PC, the <b>V</b> key opens the video in VLC.</p></details>
+    <details><summary>The installation is blocked</summary>
+      <p>Allow the app that opens the file (Downloader, Chrome, Files) to install unknown apps, as shown in the installation steps.</p></details>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>
+        <p style="margin:0 0 12px;color:var(--dim)">To get an activation code, install on a Samsung TV or ask a question.</p>
+        <a class="btn wa hidden" id="wa" rel="noopener">💬 Message us on WhatsApp</a>
+        <p id="nowa" class="tip">The contact number will be shown here soon.</p>
+      </div>
+      <div style="text-align:center">
+        <div id="qr"></div>
+        <p class="tip" style="border:0;margin:6px 0 0">Scan to open this page<br>on another device</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>CK IPTV · <span id="date"></span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // Same settings as index.html (keep both pages in sync)
+  var WHATSAPP = "237693295198";
+  var DOWNLOADER_CODE = "5391565";
+  var GITHUB_USER = "", GITHUB_REPO = "";
+
+  // Language button: remember the choice
+  document.querySelector(".lang").addEventListener("click", function () {
+    try { localStorage.setItem("ckLang", "fr"); } catch (e) {}
+  });
+  try { if (!localStorage.getItem("ckLang")) localStorage.setItem("ckLang", "en"); } catch (e) {}
+
+  (function () {
+    var h = location.hostname, m = h.match(/^([^.]+)\.github\.io$/i);
+    if (m) {
+      var seg = location.pathname.split("/")[1];
+      GITHUB_USER = GITHUB_USER || m[1];
+      GITHUB_REPO = GITHUB_REPO || (seg && !/\.html?$/i.test(seg) ? seg : h);
+    }
+    var base = GITHUB_USER && GITHUB_REPO
+      ? "https://github.com/" + GITHUB_USER + "/" + GITHUB_REPO + "/releases/latest/download/" : "";
+
+    document.querySelectorAll("[data-file]").forEach(function (a) {
+      if (base) a.href = base + a.dataset.file;
+      else a.href = "#";
+    });
+
+    var ua = navigator.userAgent, dev = null;
+    if (/AFT|Android ?TV|GoogleTV|BRAVIA|SMART-TV|AndroidTV|; ?TV\b|MiBOX|SHIELD/i.test(ua)) dev = "tv";
+    else if (/Android/i.test(ua)) dev = "mobile";
+    else if (/Windows NT/i.test(ua)) dev = "pc";
+    var labels = { tv: "Download for Android TV", mobile: "Download for Android", pc: "Download for Windows" };
+    var files = { tv: "CK_IPTV_TV.apk", mobile: "CK_IPTV_Mobile.apk", pc: "CK_IPTV_PC_Setup.exe" };
+    if (dev) {
+      var card = document.querySelector('.card[data-dev="' + dev + '"]');
+      card.classList.add("hl");
+      card.querySelector("h3").insertAdjacentHTML("afterend", '<span class="badge">✓ For your device</span>');
+      document.getElementById("reco").innerHTML = '<p>Recommended version for this device</p><a class="btn" href="' +
+        (base ? base + files[dev] : "#") + '">⬇ ' + labels[dev] + "</a>";
+      selectTab(dev);
+    } else {
+      document.getElementById("reco").innerHTML = '<a class="btn" href="#telecharger">⬇ Choose my version</a>';
+    }
+
+    function selectTab(id) {
+      document.querySelectorAll(".tabs button").forEach(function (b) {
+        b.setAttribute("aria-selected", b.dataset.tab === id ? "true" : "false");
+      });
+      document.querySelectorAll(".panel").forEach(function (p) { p.classList.toggle("on", p.id === "p-" + id); });
+    }
+    document.querySelectorAll(".tabs button").forEach(function (b) {
+      b.addEventListener("click", function () { selectTab(b.dataset.tab); });
+    });
+
+    if (DOWNLOADER_CODE) {
+      document.getElementById("dlcode").classList.remove("hidden");
+      document.getElementById("dlcodeval").textContent = DOWNLOADER_CODE;
+      document.getElementById("tv-get").innerHTML = "Open Downloader, type the code <b>" + DOWNLOADER_CODE +
+        "</b> then <b>Go</b>: the download starts.";
+    }
+
+    if (WHATSAPP) {
+      var wa = document.getElementById("wa");
+      wa.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Hello, I would like a CK IPTV activation code.");
+      wa.classList.remove("hidden");
+      document.getElementById("nowa").classList.add("hidden");
+    }
+
+    try { new QRCode(document.getElementById("qr"), { text: location.href.split("#")[0], width: 130, height: 130 }); }
+    catch (e) { document.getElementById("qr").parentNode.classList.add("hidden"); }
+
+    if (GITHUB_USER && GITHUB_REPO) {
+      fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/releases/latest")
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (rel) {
+          if (!rel) return;
+          if (rel.name) document.getElementById("ver").textContent = rel.name;
+          if (rel.published_at) document.getElementById("date").textContent = "Updated " +
+            new Date(rel.published_at).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+          (rel.assets || []).forEach(function (a) {
+            var el = document.querySelector('[data-size="' + a.name + '"]');
+            if (el) el.textContent = (el.dataset.label ? el.dataset.label + " · " : "") +
+              (a.size / 1048576).toFixed(1) + " MB";
+          });
+        }).catch(function () {});
+    }
+  })();
+</script>
+</body>
+</html>

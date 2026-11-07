@@ -6,13 +6,16 @@
 <title>CK IPTV – Téléchargement</title>
 <meta name="description" content="Téléchargez CK IPTV pour Android TV, Fire TV, téléphone, tablette et PC Windows, avec le guide d'installation.">
 <link rel="icon" href="logo.png">
+<link rel="alternate" hreflang="fr" href="index.html">
+<link rel="alternate" hreflang="en" href="en.html">
 <meta property="og:title" content="CK IPTV – Téléchargement">
 <meta property="og:description" content="Lecteur IPTV pour TV, téléphone, tablette et PC.">
 <meta property="og:image" content="logo.png">
 <style>
   /* ------------------------------------------------------------ réglages
      Seules ces trois lignes sont à modifier (dans le script en bas de page) :
-     WHATSAPP, DOWNLOADER_CODE et, hors GitHub Pages, GITHUB_USER / GITHUB_REPO. */
+     WHATSAPP, DOWNLOADER_CODE et, hors GitHub Pages, GITHUB_USER / GITHUB_REPO.
+     La page anglaise en.html a le même style et les mêmes réglages : modifier les deux pages. */
   :root {
     --bg: #0B1220; --bg2: #111A2E; --card: #16213A; --line: #24324F;
     --text: #EEF3FA; --dim: #9AA7B4; --blue: #1E9BFF; --blue2: #0A6DD8;
@@ -25,7 +28,10 @@
   a { color: var(--blue); }
   .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
 
-  header { background: radial-gradient(ellipse at top, #16305E 0%, var(--bg) 70%); padding: 40px 0 28px; text-align: center; }
+  header { background: radial-gradient(ellipse at top, #16305E 0%, var(--bg) 70%); padding: 40px 0 28px; text-align: center; position: relative; }
+  .lang { position: absolute; top: 12px; right: 16px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 99px;
+          color: var(--text); text-decoration: none; font-size: 14px; background: rgba(11,18,32,.5); }
+  .lang:hover { border-color: var(--blue); }
   header img { width: 150px; height: auto; }
   h1 { margin: 10px 0 4px; font-size: 30px; }
   .tag { color: var(--dim); margin: 0 auto; max-width: 560px; }
@@ -87,8 +93,8 @@
   .faq summary { cursor: pointer; padding: 12px 16px; font-weight: 600; }
   .faq details p { margin: 0; padding: 0 16px 14px; color: var(--dim); }
 
-  .contact { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
-  #qr { background: #fff; padding: 10px; border-radius: 10px; width: 150px; height: 150px; }
+  .contact { display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  #qr { background: #fff; padding: 10px; border-radius: 10px; width: 150px; height: 150px; margin: 0 auto; box-sizing: border-box; }
   #qr img, #qr canvas { width: 130px !important; height: 130px !important; }
   footer { color: var(--dim); font-size: 13px; text-align: center; padding: 34px 0 30px; }
   .hidden { display: none !important; }
@@ -111,11 +117,12 @@
 <body>
 
 <header>
+  <a class="lang" href="en.html" hreflang="en" lang="en" data-lang="en">🌐 English</a>
   <div class="wrap">
     <img src="logo.png" alt="Logo CK IPTV">
     <h1>CK IPTV</h1>
     <p class="tag">Vos chaînes, films et séries avec la même présentation sur la TV, le téléphone, la tablette et le PC.</p>
-    <span class="ver" id="ver">Android 3.7 · PC 1.6.2</span>
+    <span class="ver" id="ver">Android 3.11 · PC 1.6.6</span>
     <div class="reco" id="reco"></div>
   </div>
 </header>
@@ -169,11 +176,11 @@
       <article class="card" data-dev="pc">
         <div class="ico">💻</div>
         <h3>PC Windows</h3>
-        <p>Windows 10 ou 11. Version à installer (raccourci sur le bureau) ou sans installation (clé USB).</p>
+        <p>Windows 10 ou 11. Version à installer (raccourci sur le bureau) ou portable, sans installation (clé USB).</p>
         <span class="meta" data-size="CK_IPTV_PC_Setup.exe" data-label="Version à installer">Environ 85 Mo</span>
         <div class="actions">
           <a class="btn" data-file="CK_IPTV_PC_Setup.exe">À installer</a>
-          <a class="btn ghost" data-file="CK_IPTV_PC_Portable.exe">Sans installation</a>
+          <a class="btn ghost" data-file="CK_IPTV_PC_Portable.exe">Portable</a>
         </div>
       </article>
 
@@ -188,7 +195,7 @@
         <div class="ico">📖</div>
         <h3>Guide complet (PDF)</h3>
         <p>Installation, fonctions, commandes de la télécommande et solutions aux problèmes.</p>
-        <div class="actions"><a class="btn ghost" data-file="Guide_CK_IPTV.pdf">Ouvrir le guide</a></div>
+        <div class="actions"><a class="btn ghost" href="Guide_CK_IPTV.pdf" target="_blank" rel="noopener">Ouvrir le guide</a></div>
       </article>
     </div>
     <p class="tip" style="margin-top:14px">iPhone, iPad et TV LG : pas de version pour le moment.</p>
@@ -240,7 +247,7 @@
     <div class="panel" id="p-pc">
       <ol class="steps">
         <li><b>Télécharger</b>
-          <p>Choisissez <b>À installer</b> (raccourci sur le bureau) ou <b>Sans installation</b> (se lance directement, par exemple depuis une clé USB).</p></li>
+          <p>Choisissez <b>À installer</b> (raccourci sur le bureau) ou <b>Portable</b> (sans installation, se lance directement, par exemple depuis une clé USB).</p></li>
         <li><b>Lancer</b>
           <p>Windows SmartScreen peut avertir, car l'appli n'est pas signée : <b>Informations complémentaires</b> › <b>Exécuter quand même</b>.</p></li>
         <li><b>Activer</b>
@@ -263,6 +270,9 @@
          <b>Réglages › Prolonger la licence</b> (2 + 2 jours = 4 jours).</p></details>
     <details><summary>« Pas de connexion » à l'activation</summary>
       <p>L'activation a besoin d'Internet : vérifiez le Wi-Fi, puis réessayez.</p></details>
+    <details><summary>« Connexion Internet faible »</summary>
+      <p>L'appli a déjà baissé la qualité de l'image si la chaîne le permet. Rapprochez-vous de la box, utilisez un câble,
+         ou choisissez une qualité maximale plus basse dans <b>Réglages › Affichage et langue</b>.</p></details>
     <details><summary>Identifiant ou mot de passe refusé</summary>
       <p>Vérifiez votre abonnement dans les Réglages, en respectant les majuscules.</p></details>
     <details><summary>« Trop de connexions »</summary>
@@ -301,11 +311,25 @@
   // Sur GitHub Pages (nom.github.io/depot) le dépôt est trouvé tout seul ; sinon, remplir ici :
   var GITHUB_USER = "", GITHUB_REPO = "";
 
+  // Langue : la première visite d'un navigateur qui n'est pas en français ouvre la page anglaise ;
+  // le bouton 🌐 retient le choix.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("ckLang"); } catch (e) {}
+    document.querySelector(".lang").addEventListener("click", function () {
+      try { localStorage.setItem("ckLang", "en"); } catch (e) {}
+    });
+    var langs = navigator.languages || [navigator.language || ""];
+    var fr = langs.some(function (l) { return /^fr/i.test(l); });
+    if ((saved || (fr ? "fr" : "en")) === "en") location.replace("en.html" + location.hash);
+  })();
+
   (function () {
     var h = location.hostname, m = h.match(/^([^.]+)\.github\.io$/i);
     if (m) {
+      var seg = location.pathname.split("/")[1];
       GITHUB_USER = GITHUB_USER || m[1];
-      GITHUB_REPO = GITHUB_REPO || (location.pathname.split("/")[1] || h);
+      GITHUB_REPO = GITHUB_REPO || (seg && !/\.html?$/i.test(seg) ? seg : h);
     }
     var base = GITHUB_USER && GITHUB_REPO
       ? "https://github.com/" + GITHUB_USER + "/" + GITHUB_REPO + "/releases/latest/download/" : "";
